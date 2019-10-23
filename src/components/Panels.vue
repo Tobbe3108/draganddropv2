@@ -1,16 +1,18 @@
 <template>
   <flickity ref="flickity" :options="flickityOptions" class="carousel">
-    <div class="carousel-cell" v-for="item in todos" :key="item.name"></div>
+    <panel-item class="carousel-cell" v-for="item in todos" :key="item.name" :item="item"></panel-item>
   </flickity>
 </template>
 
 <script>
 import Flickity from "vue-flickity";
+import PanelItem from "./PanelItem";
 
 export default {
-  name: "panel",
+  name: "panels",
   components: {
-    Flickity
+    Flickity,
+    PanelItem
   },
   data() {
     return {
@@ -36,7 +38,7 @@ export default {
 
 <style>
 .carousel {
-  padding-top: 30vh;
+  padding-top: 40vh;
   height: 90vh;
 }
 .carousel-cell {

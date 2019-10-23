@@ -1,33 +1,36 @@
 <template>
   <div id="app">
     <gradient :todos="todos" :currentIndex="currentIndex" />
-    <panel :todos="todos" @changeIndex="changeIndex" />
+    <panels :todos="todos" @changeIndex="changeIndex" />
   </div>
 </template>
 
 <script>
 import Gradient from "./components/Gradient";
-import Panel from "./components/Panel";
+import Panels from "./components/Panels";
 
 export default {
   name: "app",
   components: {
     Gradient,
-    Panel
+    Panels
   },
   data() {
     return {
       currentIndex: 0,
       todos: [
         {
+          icon: "user",
           name: "Personal",
           color: "#ff6262"
         },
         {
+          icon: "suitcase",
           name: "Work",
           color: "#5b9df9"
         },
         {
+          icon: "home",
           name: "Home",
           color: "#2c7d59"
         }

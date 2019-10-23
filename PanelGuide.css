@@ -1,0 +1,59 @@
+.todo_menu {
+  color: #eee;
+}
+
+.todo_body {
+  padding: 0 20px;
+  transform: translate3d(0, 189px, 0);
+  will-change: transform;
+}
+
+.todo_tips {
+  opacity: 0.6;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.todo_title {
+  margin-top: 6px;
+  font-size: 32px;
+}
+
+.todo_progress {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.todo_progress_line {
+  margin-right: 10px;
+  flex: 1;
+  height: 3px;
+  background-color: #eee;
+  i {
+    display: block;
+    height: 100%;
+    transition: all 0.3s ease;
+  }
+}
+
+.todo_progress_num {
+  font-size: 12px;
+}
+
+.todo_tasks {
+  opacity: 0;
+  transform: scale3d(1, 0, 1);
+  // transform-origin: top;
+  // will-change: transform opacity;
+}
+
+.todo_subtitle {
+  margin-top: 32px;
+  margin-bottom: 8px;
+  color: #999;
+}
+
+.todo__selected {
+  visibility: hidden;
+}
