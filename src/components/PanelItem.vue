@@ -4,6 +4,7 @@
       <v-icon :name="item.icon" scale="1.25" :style="{color: item.color}"></v-icon>
     </div>
     <div class="panel_Body">
+      <h7 class="panel_Items">{{ItemsDisplay(item.items)}}</h7>
       <h3 class="panel_Title">{{item.name}}</h3>
     </div>
   </div>
@@ -12,7 +13,16 @@
 <script>
 export default {
   name: "panelItem",
-  props: ["item"]
+  props: ["item"],
+  methods: {
+    ItemsDisplay(items) {
+      if (items.length == 1) {
+        return items.length + " Item";
+      } else {
+        return items.length + " Items";
+      }
+    }
+  }
 };
 </script>
 
@@ -37,13 +47,18 @@ export default {
   align-items: center;
 }
 .panel_Body {
-  text-align: right;
-  transform: translate3d(0, 189px, 0);
-  will-change: transform;
+  display: inline-block;
+  padding-bottom: 10px;
+  justify-content: left;
+  align-items: flex-end;
+  position: absolute;
+  bottom: 0;
+  left: 20;
 }
 .panel_Title {
-  margin-top: 6px;
-  font-size: 32px;
+  color: black;
+}
+.panel_Items {
   color: black;
 }
 </style>

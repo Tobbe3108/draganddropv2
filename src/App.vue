@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <gradient :todos="todos" :currentIndex="currentIndex" />
-    <panels :todos="todos" @changeIndex="changeIndex" />
+    <panels :todos="todos" :currentIndex="currentIndex" @changeIndex="changeIndex" />
   </div>
 </template>
 
@@ -22,17 +22,23 @@ export default {
         {
           icon: "user",
           name: "Personal",
-          color: "#ff6262"
+          items: [],
+          color: "#ff6262",
+          lastEdit: "2019-10-24"
         },
         {
           icon: "suitcase",
           name: "Work",
-          color: "#5b9df9"
+          items: [name],
+          color: "#5b9df9",
+          lastEdit: "2019-10-20"
         },
         {
           icon: "home",
           name: "Home",
-          color: "#2c7d59"
+          items: [name, name, name],
+          color: "#2c7d59",
+          lastEdit: "2019-05-12"
         }
       ]
     };

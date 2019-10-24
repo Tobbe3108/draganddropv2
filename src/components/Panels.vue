@@ -1,18 +1,24 @@
 <template>
-  <flickity ref="flickity" :options="flickityOptions" class="carousel">
-    <panel-item class="carousel-cell" v-for="item in todos" :key="item.name" :item="item"></panel-item>
-  </flickity>
+  <div class="panels_Container">
+    <last-edit-date :date="todos[currentIndex].lastEdit" />
+
+    <flickity ref="flickity" :options="flickityOptions" class="carousel">
+      <panel-item class="carousel-cell" v-for="item in todos" :key="item.name" :item="item"></panel-item>
+    </flickity>
+  </div>
 </template>
 
 <script>
 import Flickity from "vue-flickity";
 import PanelItem from "./PanelItem";
+import LastEditDate from "./LastEditDate";
 
 export default {
   name: "panels",
   components: {
     Flickity,
-    PanelItem
+    PanelItem,
+    LastEditDate
   },
   data() {
     return {
@@ -22,7 +28,7 @@ export default {
       }
     };
   },
-  props: ["todos"],
+  props: ["todos", "currentIndex"],
   methods: {
     onInit() {
       this.$refs.flickity.on("change", index => {
@@ -37,6 +43,10 @@ export default {
 </script>
 
 <style>
+.panel_Container {
+  display: flex;
+  height: 100vh;
+}
 .carousel {
   padding-top: 40vh;
   height: 90vh;
